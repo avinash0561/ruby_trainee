@@ -1,0 +1,19 @@
+body{
+    color: darkgray;
+}
+h2{
+    border-style: dashed;
+    border-width: 10px;
+    border-color: black;
+    border-radius: 5px;
+    
+        
+        padding-right: 30px;
+        padding-left: 80px;
+
+        background-color: saddlebrown;
+        
+}
+img{
+    float: right;
+}

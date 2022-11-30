@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Table</title>
+    <link  rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <style>
+        body{
+            font-size: 32px;
+        }
+        .image{
+            height:400px ;
+        }
+        .group:hover{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <table class="table table-dark table-stripped table-hover table-responsive table-bordered text-success">
+        <th>
+            <td colspan="3">Time Table</td>
+        </th>
+        <tr>
+            <td>Math</td>
+            <td>Physics</td>
+            <td>Chemistry</td>
+        </tr>
+        <tr>
+            <td>Physics</td>
+            <td>Chemistry</td>
+            <td>Maths</td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td colspan="2">Hindi</td>
+        </tr>
+    </table>
+    <!-- Images -->
+    <div class="container">
+        <img src="https://i.insider.com/621e702875b649001845882b?width=1136&format=jpeg" alt="" class=" image rounded-circle img-thumbnail float-end mx-auto d-block">
+    </div>
+    <!-- Alerts -->
+    <div class="container_fluid">
+        <div class="alert alert-primary">Alert goes here</div>
+    </div>
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+      </div>
+      <div class="container">
+        <div class="alert alert-danger .fade .show">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam dolor cumque eaque error quidem ipsum, odit, voluptas quasi aliquid laudantium facilis. Illo provident assumenda magnam voluptates. Dolores reprehenderit ipsam quo.
+        </div>
+      </div>
+      <div class="container">
+        <a href="#" class="btn btn-dark">Button</a>
+        <button type="button" class="btn btn-warning">Button</button>
+        <button type="button" class="btn btn-warning">Button</button>
+        <button type="button" class="btn btn-warning">Button</button>
+      </div>
+      <div class="btn-group group">
+        <button type="button" class="btn btn-danger">Button</button>
+        <button type="button" class="btn btn-danger">Button</button>
+        <button type="button" class="btn btn-danger">Button</button> 
+      </div>
+      
+</body>
+</html>

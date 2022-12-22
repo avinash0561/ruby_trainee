@@ -1,8 +1,6 @@
 function des(id) {
   var dots = document.getElementsByClassName(id)[0];
   var moreText = document.getElementById(id);
-  console.log(dots);
-  console.log(moreText);
   if (moreText.style.display === "none") {
     moreText.style.display = "inline";
     dots.innerHTML = 'Read Less <i class="fa-solid fa-chevron-up"></i>';
@@ -124,7 +122,7 @@ function totalVal() {
 function addTo(PID) {
   let object = find_obj(PID);
 
-  console.log(PID);
+  
 
   if (!wishlist.includes(object)) {
     let ans =

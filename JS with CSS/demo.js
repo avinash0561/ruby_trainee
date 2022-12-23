@@ -77,24 +77,19 @@ function display(obj) {
         <h2><b>${obj.pname}</b></h2>
         <p>${obj.pdes}</p>
       </div>
-
       <div>
         <p>Product code: ${obj.pcode}</p>
       </div>
-
       <div class="cardfooter">
-
         <div class="fix">
           <span onclick="des('${obj.pid}1')" class="${obj.pid}1  tc insidePara">Product Description</span><br>
           <p id="${obj.pid}1"class="insidePara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab fugiat magnam alias,Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab fugiat magnam aliasLorem ipsum dolor sit amet consectetur adipisicing elit. Ab fugiat magnam alias</p>
         </div>
-
         <div class="outText">
           
           Price: ${obj.pprice} <del class="rm">SEK ${obj.mpprice}</del> 
          
         </div>
-
        <div class="myclass pt-3">
         <button class = "button myclass" onclick = "addTo('${obj.pid}')">Add to List</button>
       </div>
@@ -104,7 +99,6 @@ function display(obj) {
 }
 document.getElementById("disp").innerHTML = view.join(" ");
 
-let myid = 0;
 let wishlist = [];
 
 function find_obj(pid) {
@@ -113,39 +107,49 @@ function find_obj(pid) {
   });
 }
 
-function totalVal() {
-  return wishlist.reduce((total, val) => {
-    return total + val.pprice;
-  }, 0);
-}
-
 function addTo(PID) {
   let object = find_obj(PID);
 
+
+  if (wishlist.includes(object))
+   {
+      alert("Item already exists");
+      return false;
+  } 
   
+  
+    wishlist.push(object);  
+    myWishlist();
+}
 
-  if (!wishlist.includes(object)) {
-    let ans =
-      object.mpprice - object.pprice > 0
-        ? `(You saved SEK ${object.mpprice - object.pprice})`
-        : `(You saved 0)`;
 
-    wishlist.push(object);
-    let totalSum = totalVal();
-
-    document.getElementById("total").innerHTML = `<div>
-    <h3 id="nam">Your Wishlist total is SEK "${totalSum}"</h3>
+function myWishlist()
+{
+  let totalWishlistPrice = 0;
+      if (wishlist.length > 0) {
+        let wishListHtml = wishlist.map(function (element) {
+          const { pid, pname, pprice,mpprice } = element;
+          totalWishlistPrice += pprice; 
+          let ans = (mpprice - pprice > 0)? `(You saved SEK ${mpprice - pprice})`: `(You saved 0)`;
+          return (
+          ` <li class="${pid}">${pname} - ${pprice} ${ans} <span onclick="delTag('${pid}')" class=" rm ${pid}"> Remove</span> </li>
+          <br>
+          `);
+        });
+        document.getElementById(
+          "wish"
+        ).innerHTML  = wishListHtml.join("\n");
+          
+      } else {
+          document.getElementById("wish").innerHTML  = "";
+      }
+      document.getElementById("total").innerHTML = `<div>
+    <h3 id="nam">Your Wishlist total is SEK "${totalWishlistPrice}"</h3>
     </div>`;
 
-    document.getElementById(
-      "wish"
-    ).innerHTML += ` <li class="${object.pid}">${object.pname} - ${object.pprice} ${ans} <span onclick="delTag('${object.pid}')" class=" rm ${object.pid}"> Remove</span> </li>`;
-  } 
-  else 
-  {
-    alert("Item already exists");
-  }
 }
+
+
 function delTag(pid) {
   let object=find_obj(pid);
   let a = document.getElementsByClassName(pid)[0];
@@ -154,8 +158,5 @@ function delTag(pid) {
   b.remove();
   let d = wishlist.indexOf(object);
   wishlist.splice(d, 1);
-  let totalSum=totalVal();
-  document.getElementById("total").innerHTML = `<div>
-    <h3 id="nam">Your Wishlist total is SEK "${totalSum}"</h3>
-    </div>`;
+  myWishlist();
 }

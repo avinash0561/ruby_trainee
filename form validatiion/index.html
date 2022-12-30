@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="navbar">
+        <div><h1>{finsweet</h1></div>
+            <div class="innercontent">
+            <pre>Home   About us   Contact</pre>
+            </div>
+    </div>
+
+    <div class="banner">
+        <img src="image.png" alt="" style="width: 100%; height: 275px;">
+    </div>
+    
+
+    <div class="heading">
+        <h1 style="margin-top: 10px;">Form Validation</h1>
+    </div>
+
+    <div class="formContent">
+
+     <div>
+        <div><h1>My Form</h1></div>
+        <form name="myform" action="#" class="myForm" >  
+            <div id="name" class="formElement">
+               <b>NAME : </b><input type="text" name="fname" placeholder="Your Name"  oninput="clearErrors('formerr1')"><br>
+               <span id="nameerr" class="formerr1 formerr" id="error1"></span>
+            </div>  
+           
+            <div id="email" class="formElement">
+                <b>EMAIL : </b> <input type="text" name="femail" placeholder="Your Email" oninput="clearErrors('formerr2') "><br>
+               <span id="emailerr" class="formerr2 formerr"></span>
+           </div>
+           
+           <div id="que" class="formElement">
+            <b>QUERY : </b> <input type="text" name="fquery" placeholder="Query Related"
+               oninput="clearErrors('formerr3') "><br>
+               <span id="queerr" class="formerr3 formerr"></span>
+           </div>
+           
+           <div id="msg" class="formElement">
+            <b>MESSAGE : </b> <input type="textarea" name="fmessage"  placeholder="Message"
+               oninput="clearErrors('formerr4') "><br>
+               <span id="msgerr" class="formerr4 formerr"></span>
+           </div>
+             
+           <input class="formElement" onclick="validateform(event)" type="submit" value="SEND MESSAGE" style="color: white; background-color: peru; border-radius: 2px; width: 100%; display: flex; align-items: center;" >
+           </form> 
+        </div>
+
+
+
+     <div>
+        <div>Address</div>
+        <div>
+            <h2>NH 234 Public Square</h2>
+        </div>
+        <div>
+            <h2>SAN Francisco 65368</h2>
+        </div>
+        <div>Contact Details</div>
+        <div>
+            <h2>(480)555-0103</h2>
+        </div>
+        <div>
+            <h2>FINSWEET@EXAMPLE.COM</h2>
+        </div>
+
+
+        <div style="margin-top: 10px;"><h3>Find us on</h3></div>
+        <div>Instagram</div>
+        <div>Facebook</div>
+        <div>LinkedIn</div>
+     </div>
+
+    </div>
+
+    <footer class="bg-dark text-light">
+        <div class="container p-5">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                    <h3>About</h3>
+                    <p>
+                        Add some information about the album below, the author, or any
+                        other background context. Make it a few sentences long so folks
+                        can pick up some informative tidbits. Then, link them off to some
+                        social networking sites or contact information.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <h3>Contact</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="text-decoration-none text-light">Follow on Twitter</a><br />
+                            <a href="#" class="text-decoration-none text-light">Like on Facebook</a><br />
+                            <a href="#" class="text-decoration-none text-light">Email me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+  
+  <!-- Modal -->
+  <div class="modal myformModal" id="exampleModal" tabindex="-1" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Information</h5>
+          <button type="button" class="btn-close close1" data-bs-dismiss="modal" aria-label="Close" onclick="myfunc()"></button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary close2" data-bs-dismiss="modal" onclick="myfunc()" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script src="form.js"></script>
+   
+</body>
+</html>
+
+

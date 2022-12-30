@@ -1,0 +1,85 @@
+.innertext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: antiquewhite;
+}
+
+.container2 {
+    
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+}
+
+.myclass {
+    display: flex;
+    justify-content: flex-end;
+    ;
+}
+
+.card {
+    margin-bottom: 40px;
+    padding: 10px;
+    width: 530px;
+    max-height: 100%;
+    border-style: solid;
+    border-width:1px ;
+    border-color: rgb(212, 205, 205);
+}
+
+.container3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rm {
+    color: red;
+}
+.fix{
+    height: 50px;
+    overflow-y: auto;
+}
+
+.tc
+{
+    color: blue;
+}
+
+@media only screen and (max-width:516px)
+{
+    .card
+    {
+        width: 250px !important; 
+        height: 100%;
+    }
+
+    .fix{
+        max-height:100px;
+       
+
+    }
+}
+.insidePara{
+    max-height: 36px !important;
+    overflow-y: auto;
+}
+.outText{
+    margin-top: 18px;
+}

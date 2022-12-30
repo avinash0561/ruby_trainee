@@ -20,24 +20,24 @@ function validateform(event)
   var msg = document.forms["myform"]["fmessage"].value;
   var name = document.forms["myform"]["fname"].value;
   if (name == "") {
-    seterror("nameerr", "Required");
+    seterror("nameerr", "Name is required");
     val = false;
    }
 
   if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) 
   {
-    seterror("emailerr", "Enter the valid email address");
+    seterror("emailerr", "Email is required");
     val = false;
   }
 
   
   if (que.length == 0) {
-    seterror("queerr", "Length of Query cannot be zero!");
+    seterror("queerr", "Query is required");
     val = false;
   }
   
   if (msg.length == 0) {
-    seterror("msgerr", "Length of message cannot be zero");
+    seterror("msgerr", "Message is required");
     val = false;
   }
   if(val)

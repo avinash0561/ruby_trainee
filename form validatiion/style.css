@@ -1,0 +1,61 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color: aliceblue;
+    flex-wrap: wrap;
+}
+
+.formContent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 25px;
+    margin-bottom: 20px;
+    
+}
+.innercontent
+{
+    font-size: 24px;
+    padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.heading
+{
+    display: flex;
+    justify-content: center;  
+}
+.formerr
+{
+    color: red;
+}
+.formElement
+{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+.myForm
+{
+    border: solid rgb(211, 204, 204);
+    padding: 20px;
+    width: 600px;
+}
+.innerNav
+{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+@media (max-width: 626px) {
+   .myForm
+   {
+    width: 330px !important;
+   }
+  }

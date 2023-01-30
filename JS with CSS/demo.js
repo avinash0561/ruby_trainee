@@ -136,11 +136,10 @@ function myWishlist()
           <br>
           `);
         });
-        document.getElementById(
-          "wish"
-        ).innerHTML  = wishListHtml.join("\n");
+        document.getElementById("wish").innerHTML  = wishListHtml.join("\n");
           
-      } else {
+         } 
+      else {
           document.getElementById("wish").innerHTML  = "";
       }
       document.getElementById("total").innerHTML = `<div>

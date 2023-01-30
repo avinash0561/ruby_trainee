@@ -1,0 +1,8 @@
+body{
+    background-color: rgb(127, 129, 255);
+}
+
+.info,#info,#city
+{
+    font-size: 24px;
+}

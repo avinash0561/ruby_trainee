@@ -52,29 +52,22 @@ $(document).ready(function () {
       if (localStorage.getItem('UsersLogin') == null) {
         storedUsers.push(userData);
         localStorage.setItem('UsersLogin', JSON.stringify(storedUsers));
-        alert("user added successfully")
+        alert("Registered Successfully")//change message
       }
       else {
 
-        let a = JSON.parse(localStorage.getItem('UsersLogin'));
+        let arr = JSON.parse(localStorage.getItem('UsersLogin')); //rename veriable name
         let flag = 1;
-        // console.log(typeof (a));
 
-        $.each(a, function (position, value) {
-          let storedemail = value.email;
+        if (arr.find((o, i) => o.email == email)) {
+          alert("User already exists");
+          return;
+        }
 
-          if (userData.email == storedemail) {
-            alert("User already exists");
-            flag = 0;
-          }
-        })
-
-
-        if (flag == 1) {
-          // console.log(flag);
-          a.push(userData);
-          localStorage.setItem('UsersLogin', JSON.stringify(a));
-          alert("user added successfully");
+        else {
+          arr.push(userData);
+          localStorage.setItem('UsersLogin', JSON.stringify(arr));
+          alert("Registered Successfully")//change message
         }
       }
 
@@ -102,42 +95,30 @@ $(document).ready(function () {
     if ($(".logform").valid()) {
       let loginEmail = $(".logemail").val();
       let loginPass = $(".logpswd").val();
-      let a = JSON.parse(localStorage.getItem('UsersLogin'));
-      // console.log(a);
+      let arr = JSON.parse(localStorage.getItem('UsersLogin')); //change varible name
 
-
-      let flag = 1;
-      let pos;
-      $.each(a, function (position, value) {
-        if (value.email == loginEmail && value.pswd == loginPass) {
-          flag = 0;
-          pos = position;
-          return;
-        }
+      let myobject;
+      let index;
+      myobject = arr.find((o, i) => {
+        index = i;
+        return (o.email == loginEmail && o.pswd == loginPass)
       })
 
-      if (flag == 0) {
-
-        alert("Login Successfully");
-        let presentUser = {
-          fname: a[pos].fname,
-          lname: a[pos].lname,
-          pnumber: a[pos].pnumber,
-          email: a[pos].email
-        };
-        localStorage.setItem("presentUser", JSON.stringify(presentUser));
-        console.log("hello");
-        window.location.href = "dashboard.html";
+      if (myobject == undefined) {
+        alert("Invalid Credentials")
       }
       else {
-        alert("invalid credentials");
+        window.location.href = "dashboard.html";
+        alert("Login Successfully");
+        let presentUser = {
+          fname: arr[index].fname,
+          pnumber: arr[index].pnumber,
+          email: arr[index].email,
+          lname: arr[index].lname,
+        };
+
+        localStorage.setItem("activeUser", JSON.stringify(presentUser));
       }
-    }
+    };
   })
-
-
-
-
-
-
 });

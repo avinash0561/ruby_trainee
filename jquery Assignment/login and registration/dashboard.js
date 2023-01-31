@@ -1,35 +1,34 @@
-let a = JSON.parse(localStorage.getItem('presentUser'));
+let arr = JSON.parse(localStorage.getItem('activeUser'));
+let html =
+    ` <div class="col">
+<div class="card mt-3">
+    <div class="card-header"><h2><i>Details</i></h2></div>
+    <div class="card-body">
+        <div><b>First Name:</b> ${arr.fname}</div>
+        <div><b>Last Name:</b> ${arr.lname}</div>
+        <div><b>Phone Number:</b> ${arr.pnumber}</div>
+        <div><b>Email:</b> ${arr.email}</div>
+
+        <div>
+         <button type="button" class="btn btn-danger mt-2 update"><i>Update</i></button>
+         
+      </div>
+    </div>      
+  </div>
+</div>
+`
 
 $(document).ready(function () {
 
     console.log($(".disp").html());
-    $(".disp").html(
-        `
-  <div class="col">
-  <div class="card mt-3">
-      <div class="card-header"><h2><i>Details</i></h2></div>
-      <div class="card-body">
-          <div><b>First Name:</b> ${a.fname}</div>
-          <div><b>Last Name:</b> ${a.lname}</div>
-          <div><b>Phone Number:</b> ${a.pnumber}</div>
-          <div><b>Email:</b> ${a.email}</div>
-
-          <div>
-           <button type="button" class="btn btn-danger mt-2 update"><i>Update</i></button>
-           
-        </div>
-      </div>      
-    </div>
-</div>
-  `
-    )
+    $(".disp").html(html);
 });
 
 $(document).on("click", ".update", function () {
-    $("#exampleModal").modal("show");
+    $("#myModal").modal("show");
 
     // Validate : 
-    $(".myForm").validate({
+    $(".editForm").validate({
         rules: {
             fname: {
                 required: true,
@@ -51,52 +50,45 @@ $(document).on("click", ".update", function () {
 })
 
 $(".close").click(function () {
-    $("#exampleModal").hide();
+    $("#myModal").hide();
 })
 
-$(document).on("submit", ".myForm", function (e) {
+$(document).on("submit", ".editForm", function (e) {
     e.preventDefault();
-    if ($(".myForm").valid()) {
+    if ($(".editForm").valid()) {
         let aname = $(".fname").val();
         let blname = $(".lname").val();
         let cpnumber = $(".pnumber").val();
 
-        a.fname = aname;
-        a.lname = blname;
-        a.pnumber = cpnumber;
+        arr.fname = aname;
+        arr.lname = blname;
+        arr.pnumber = cpnumber;
 
-        console.log("hello");
-        localStorage.setItem("presentUser", JSON.stringify(a));
-        // localStorage.setItem('UsersLogin', JSON.stringify(a));
-        // let b=localStorage.getItem('UsersLogin');
 
-        let b = JSON.parse(localStorage.getItem('UsersLogin'));
-        let flag = 1;
-        console.log(typeof (a));
+        localStorage.setItem("activeUser", JSON.stringify(arr));
+
+        let arr1 = JSON.parse(localStorage.getItem('UsersLogin'));
         let answer;
 
-        $.each(b, function (position, value) {
+        myobject = arr1.find((o, i) => {
+            answer = i;
+            return (o.email == arr1.email)
+        })
 
-            if (value.email == a.email) {
-                answer = position;
-                return;
-            }
-        });
-
-        b[answer].fname = aname;
-        b[answer].lname = blname;
-        b[answer].pnumber = cpnumber;
-        localStorage.setItem('UsersLogin', JSON.stringify(b));
+        arr1[answer].fname = aname;
+        arr1[answer].lname = blname;
+        arr1[answer].pnumber = cpnumber;
+        localStorage.setItem('UsersLogin', JSON.stringify(arr1));
         $(".disp").html(
             `
           <div class="col">
           <div class="card mt-3">
               <div class="card-header"><h2><i>Details</i></h2></div>
               <div class="card-body">
-                  <div><b>First Name:</b> ${a.fname}</div>
-                  <div><b>Last Name:</b> ${a.lname}</div>
-                  <div><b>Phone Number:</b> ${a.pnumber}</div>
-                  <div><b>Email:</b> ${a.email}</div>
+                  <div><b>First Name:</b> ${arr.fname}</div>
+                  <div><b>Last Name:</b> ${arr.lname}</div>
+                  <div><b>Phone Number:</b> ${arr.pnumber}</div>
+                  <div><b>Email:</b> ${arr.email}</div>
         
                   <div>
                    <button type="button" class="btn btn-danger mt-2 update"><i>Update</i></button>

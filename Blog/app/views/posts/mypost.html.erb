@@ -1,0 +1,25 @@
+
+<div class="container" style="display: flex; justify-content: center; align-items: center;" >
+        
+        <div class="row mt-3">
+            <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                <div class="card shadow-lg" style="width:600px; border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <div class="card-header bg-primary text-white"><h2>My Posts</h2></div>
+                    
+                    <div class="card-body">
+                        <ul>
+                            <% @posts.each do |post| %>
+                          <% if current_user.id.to_i == post.user_id.to_i %>
+                           
+                           <li>
+                                <%= link_to post.title, post %>
+                              </li>
+                          
+                          <% end %>
+                          <% end %>
+                          </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>

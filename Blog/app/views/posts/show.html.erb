@@ -1,0 +1,59 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;margin-bottom: 100px;">
+            <div class="card shadow-lg" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;">
+                <div class="card-header bg-primary text-white" style="display: flex; justify-content: center; align-items: center;"><h1><%= @post.title %></h1></div>
+                <div class="card-body" >
+                    <div style="display: flex; justify-content: center; align-items: center;"><p> <% @post.images.each do |image| %>
+                        <%= image_tag(image, style: 'width:500px; height:200px; object-fit:contain') %>
+                        <% end %></p> </div>
+                        <div class = 'mb-2' style="display: flex; justify-content: center; align-items: center; font-size:26px"></b><br><%= @post.description %></p></div>
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                        <% if user_signed_in? and current_user.role == 'writer' and current_user.id.to_i != @post.user_id.to_i %>
+                        <% like = current_user.likes.find_by(post: @post) %>
+                        <% if like.nil? %>
+                          <%= button_to "like", likes_path, params: { like: { post_id: @post.id }}, method: :post , class: 'btn btn-outline-danger me-2'%>
+                        <% else %>
+                          <%= button_to "Unlike", like_path(like), method: :delete, class: 'btn btn-outline-success me-2' %>
+                        <% end %>
+                      <% end %>
+                       <b class = 'text-danger'><%= @post.likes.count %> Likes </b>
+                       </div>
+                </div>
+                <div class="card-footer">
+                <% if current_user.role == 'writer' and current_user.id.to_i != @post.user_id.to_i%>
+                <%= render 'comments/form',comment: @comment%></div>
+                <% end %>
+                <div style="display: flex; justify-content: center; align-items: center; font-size: 24px">
+                <ul>
+                <h3> Comments </h3>
+                <%a = @post.comments.count%>
+                <% @post.comments.each_with_index do|comment,index| %>
+                        <% if index < a %>
+                        <li><%=  comment.text %> <% if current_user.role == 'admin' or current_user.id.to_i == @post.user_id.to_i%>
+<%= button_to "Delete comment", comment, method: :delete, class: 'btn btn-outline-danger' %>
+<% end %> </li>
+                         
+                        <% end %>
+                  <% end %>
+                  </ul>
+                </div>
+                <hr>
+                <div style="display: flex; justify-content: center; align-items: center; font-size: 24px"> <% if current_user.id.to_i == @post.user_id.to_i or current_user.role == 'admin' or current_user.role == 'reviewer' %>
+                
+        <ul>
+  <li><%= link_to "Edit", edit_post_path %></li>
+  <% if current_user.role == 'admin' or current_user.id.to_i == @post.user_id.to_i%>
+  <li><%= link_to "Destroy", post_path, data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+                  <% end %>
+</ul>
+  <% end %> </div>
+              </div>              
+        </div>
+    </div>
+   </div>
+

@@ -1,12 +1,12 @@
 
-<div class="container">
+<div class="container w-50">
     <div class="row">
         <div class="col" style="display: flex; justify-content: center; align-items: center;margin-bottom: 100px;">
             <div class="card shadow-lg" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;">
                 <div class="card-header bg-primary text-white" style="display: flex; justify-content: center; align-items: center;"><h1><%= @post.title %></h1></div>
                 <div class="card-body" >
                     <div style="display: flex; justify-content: center; align-items: center;"><p> <% @post.images.each do |image| %>
-                        <%= image_tag(image, style: 'width:500px; height:200px; object-fit:contain') %>
+                        <%= image_tag(image, style: 'height: 100%; width: 100%; object-fit: contain;', class: 'pt-3 ') %>
                         <% end %></p> </div>
                         <div class = 'mb-2' style="display: flex; justify-content: center; align-items: center; font-size:26px"></b><br><%= @post.description %></p></div>
                         <div style="display: flex; justify-content: center; align-items: center;">

@@ -1,37 +1,48 @@
-
-<div class="container">
+<div class="container p-3" style = 'margin-bottom: 100px'>
+    <%= form_with model: post do |form| %>
     <div class="row">
         <div class="col" style="display: flex; justify-content: center; align-items: center;">
-          <%= form_with model: post do |form| %>
-  <div class = "form-control m-2" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;font-size:24px">
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <div class = 'text-danger'><%= @post.errors.full_messages_for(:title).first %></div>
-  </div>
-
-  <div class = "form-control m-2 mb-0" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;font-size:24px">
-    <%= form.label :description %><br>
-    <%= form.text_field :description %><br>
-    <div class = 'text-danger'><%= @post.errors.full_messages_for(:description).first %></div>
-  </div>
-
-  <div class = "form-control m-2 mb-0" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;font-size:24px">
-    <%= form.file_field :images, multiple: true%><br>
-    <div class = 'text-danger'><%= @post.errors.full_messages_for(:images).first %></div>
-  </div>
-  
-  <div>
-    <%= form.text_field :user_id, type: "hidden", value: current_user.id %><br>
-  </div>
-
-   
-
-  <div class = "form-control m-2 mt-0" >
-    <%= form.submit class: 'btn btn-primary col-12 form-conntrol', style: 'font-size:24px' %>
-  </div>
-<% end %>
+            <div class = "form-control m-2" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; width: 450px; background-color: #edf4f4;font-size:24px">
+                <%= form.label :title %><br>
+                <%= form.text_field :title %>
+                <div class = 'text-danger'><%= @post.errors.full_messages_for(:title).first %></div>
+        </div>
         </div>
     </div>
-   </div>
 
-   
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+            <div class = "form-control m-2 mb-0" style="border-color: #adb5bd; border-radius: 2px;width: 450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= form.label :description %><br>
+                <%= form.text_field :description %><br>
+                <div class = 'text-danger'><%= @post.errors.full_messages_for(:description).first %></div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+            <div class = "form-control m-2 mb-0" style="border-color: #adb5bd; border-radius: 2px;width: 450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= form.file_field :images, multiple: true%><br>
+                <div class = 'text-danger'><%= @post.errors.full_messages_for(:images).first %></div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+            <div>
+                <%= form.text_field :user_id, type: "hidden", value: current_user.id %><br>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+            <div class = " m-2 mt-0" >
+                <%= form.submit class: 'btn btn-primary col-12 form-conntrol', style: 'font-size:24px; width: 450px;' %>
+              </div>
+        </div>
+    </div>
+    <%end%>
+</div>

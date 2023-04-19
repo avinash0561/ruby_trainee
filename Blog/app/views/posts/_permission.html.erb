@@ -1,6 +1,6 @@
- <div class="container" style="display: flex; justify-content: center; align-items: center">
+ <div class="container" style = 'margin-bottom:100px' >
     <div class="row">
-        <div class="col" style = 'width:500px' >
+        <div class="col" style="display: flex; justify-content: center; align-items: center;" >
             <% if current_user.role == 'admin' or current_user.role == 'reviewer'%>
   <%= form_with model: @post do |form| %>
   

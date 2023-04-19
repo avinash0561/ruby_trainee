@@ -23,4 +23,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  scope "(:locale)", locale: /en|ru/ do
+    get '/about', to: 'home#about', as: :about
+  end
 end

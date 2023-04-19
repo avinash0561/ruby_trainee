@@ -1,0 +1,23 @@
+ 
+<div class="container w-50" style = 'margin-bottom: 100px'>
+    <div class="row">
+        <div class="col" style="display: flex; align-items: center; justify-content: center;">
+            <div class="card p-1 shadow-lg" style="width:450px;border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;">
+            <div class="card-header bg-primary text-white"><h2><i><%= current_user.name%></i></h2></div>
+    <% if current_user.avatar.attached? %>
+    <div style="display: flex; justify-content: center; align-items: center;">
+<%= image_tag current_user.avatar , style: 'height: 100%; width: 100%; object-fit: contain;', class: 'pt-3 '%>
+   </div>
+   <% end %>
+    <div class="card-body bg-primary text-white mt-3" style = 'display-flex justify-content-center align-items-center '>
+                   <p style = "font-size: 18px;"> Email : <%= @user.email %></p>
+                   <p style = "font-size: 18px;"> Role : <%= @user.role %> </p>
+                </div> 
+  </div>
+        </div>
+    </div>
+   </div>
+
+
+
+

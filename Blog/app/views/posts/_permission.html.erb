@@ -1,0 +1,23 @@
+ <div class="container" style = 'margin-bottom:100px' >
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;" >
+            <% if current_user.role == 'admin' or current_user.role == 'reviewer'%>
+  <%= form_with model: @post do |form| %>
+  
+  <div class = "form-control m-2 p-3" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;font-size:24px; ">
+     <%= form.label :is_published,:class => "label" %><br>
+  <%= form.radio_button :is_published, true %> Publish<br />
+    <%= form.radio_button :is_published, false %> Unpublish<br />    
+  </div>
+
+
+
+  <div class = "form-control m-2 mt-0 p-3" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+    <%= form.submit class: 'btn btn-primary col-12 form-conntrol', style: 'font-size:24px' %>
+  
+<% end %>
+<% end %>
+
+        </div>
+    </div>
+   </div>

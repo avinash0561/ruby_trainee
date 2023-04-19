@@ -1,0 +1,28 @@
+
+
+<div class="container shadow-lg" style = 'margin-bottom: 100px;'>
+<div class="row">
+        <div class="col" style=" font-size: 24px;">
+        <h2><%= t 'translation' %></h2>
+            <ul>
+                <li><%= link_to 'English', about_path(locale: :en) %></li>
+                <li><%= link_to 'Русский', about_path(locale: :ru) %></li>
+            </ul>          
+        </div>
+</div>
+    <div class="row bg-primary text-white" >
+        <div class="col">
+            <h1> <%= t 'welcome' %> </h1>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col" style="display: flex; justify-content: center; align-items: center; font-size:25px">
+            <p>
+            <%= t 'text' %>
+            <%= t 'text' %>
+            </p>
+        </div>
+    </div>
+   </div>
+

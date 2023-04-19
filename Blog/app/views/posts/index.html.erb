@@ -1,0 +1,11 @@
+
+<% if current_user.role == 'writer' %>
+   <%= render "post" %>
+    <% end %>
+
+ <% if current_user.role == 'admin' or current_user.role == 'reviewer'%>
+   <%= render "publishandunpublishpost" %>
+   <% end %>
+
+
+   

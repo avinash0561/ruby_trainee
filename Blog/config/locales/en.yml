@@ -1,0 +1,36 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  translation: 'Transaltion'
+  welcome: "This is my about page......"
+  services_html: "We provide some fancy services to <em>good people</em>."
+  text: 'Thank you very much. Unless it hinders the consequences of our own flight, no one provides for the laborious things from where? Should we be repulsed to assume that we were born with the smallest insight with the desire to find our needs for flexibility? The company itself is a very successful company. Let the soul flee from those pains, the chosen object will flee him, labor, indeed pleases, but this architect of pleasures, blinded by pain, should he seek to make them fall from where? The company itself is a very successful company. Look at that pain especially! He hates to get the smallest thing in them, because when he does it, but if not the pain and trouble and the architect? If the customer is very smart, he or she will be able to achieve the desired result. He is bound by the pleasures of time, he receives them, or by the distinction of pain, but with just something present, they provide that the inventor of the times will succeed as if he were in another life. '

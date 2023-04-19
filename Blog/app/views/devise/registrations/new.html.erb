@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+            <h1>Login</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container w-25" >
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="row">
+        <div class="col" >
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <div class = 'text-danger'><%= @user.errors.full_messages_for(:email).first %></div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :name %><br />
+                <%= f.text_field :name %>
+                <div class = 'text-danger'><%= @user.errors.full_messages_for(:name).first %></div>
+              </div> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password" %>
+            
+               <div class = 'text-danger'><%= @user.errors.full_messages_for(:password).first %></div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :role,:class => "label" %><br>
+                <%= f.radio_button :role, 'admin' %> Admin<br />
+                <%= f.radio_button :role, 'writer' %> Writer<br />
+                <%= f.radio_button :role, 'reviewer' %> Reviewer<br />
+               <div class = 'text-danger'><%= @user.errors.full_messages_for(:role).first %></div>
+             </div> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :profile_picture %><br />
+                <%= f.file_field :avatar%>
+                <div class = 'text-danger'><%= @user.errors.full_messages_for(:avatar).first %></div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <%= f.submit "Sign up", class: "btn btn-primary col-12", style: 'font-size: 26px;width:450px' %>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col" style="display: flex; justify-content: center; align-items: center;">
+            <h1>Login</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container w-25">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px; width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              </div>            
+        </div>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+    <div class="row">
+        <div class="col">
+            <div class="field form-control" style="border-color: #adb5bd; border-radius: 2px;width:450px; border-width: 1px; background-color: #edf4f4;font-size:24px">
+                <%= f.check_box :remember_me ,style: 'form-check-input' %>
+                <%= f.label :remember_me %>
+              </div>
+        </div>
+    </div>
+    <% end %>
+
+    <div class="row">
+        <div class="col" >
+            <%= f.submit "Log in",class:'btn btn-primary col-12', style: 'width:450px;font-size:24px' %>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+  
+   <%= render "devise/shared/links" %>
+
+
+<div class="container" style = 'margin-bottom:100px'>
+        <div class="row">
+            <div class="col text-danger" style="display: flex; justify-content: center; align-items: center; font-size:24px ; ">
+                <p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+            </div>
+        </div>
+    </div>
+   

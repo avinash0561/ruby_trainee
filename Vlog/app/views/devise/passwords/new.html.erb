@@ -1,0 +1,38 @@
+
+ <div class="container mt-5">
+        <div class="row">
+            <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                <h2>Forgot your password?</h2>
+            </div>
+        </div>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+       
+
+        <div class="row">
+            <div class="col p-2 m-1" style="display: flex; justify-content: center; align-items: center;font-size:24px">
+                <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-danger" style="display: flex; justify-content: center; align-items: center;">
+                <%= @user.errors.full_messages_for(:email).first %>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col p-2 m-1" style="display: flex; justify-content: center; align-items: center;">
+                <div class="actions">
+                    <%= f.submit "Send me reset password instructions",class:'btn btn-primary', style: 'font-size:21px' %>
+                  </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+
+<%= render "devise/shared/links" %>

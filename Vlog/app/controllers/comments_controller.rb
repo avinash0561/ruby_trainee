@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     else
     @comment.upvote_by current_user
     end
-    redirect_to post_path	
+    redirect_to @comment.post	
   end
 
 
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     else
     @comment.downvote_by current_user
     end
-    redirect_to post_path	
+    redirect_to @comment.post	
   end
 
   # GET /comments or /comments.json
@@ -74,7 +74,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
     posts_path
-    format.html { redirect_to post_path}
+    format.html { redirect_to @comment.post}
       format.json { head :no_content }
     end
   end

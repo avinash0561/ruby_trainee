@@ -1,6 +1,6 @@
-<div class="container w-50" style= 'margin-bottom:100px'>
-        <div class="row">
-            <div class="col">
+<div class="container  mt-5" style= 'margin-bottom:100px'>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-8 col-lg-6">
                 <div class="card" style="border-color: #adb5bd; border-radius: 2px; border-width: 1px; background-color: #edf4f4;">
                     <div class="card-header bg-primary text-light">
                         <div class="row">
@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col" style="display:flex;justify-content: center; align-items: center;">
                                 <% @post.images.each do |image| %> 
-                                    <%= image_tag(image, style: ' width:75%; height:75%',class: 'shadow') %>
+                                    <%= image_tag(image, style: ' width:75%; height:75%',class: 'shadow card-top card-bg') %>
                                 <% end %>      
                             </div>
                         </div>
@@ -26,16 +26,18 @@
                         </div>
 
                         <div class="row">
-                            <div class="col" style="display:flex;justify-content: end; align-items: center;">
-                                <div class = "ms-1">
-                                    <h4>Likes <%= @post.votes_for.up.size%></h4>
-                                </div>
+                            <div class="col" style="display:flex;justify-content: center; align-items: center;">
                                 <% if current_user.id.to_i != @post.user_id.to_i %>
                                 <%= button_to "",upvote_post_path(@post), style: 'color:red',class: 'btn fa-regular fa-heart fa-2x',method: :patch %><br>
                                 <% end %>
+
+                                <div class = "ms-1">
+                                    <h4>Likes <%= @post.votes_for.up.size%></h4>
+                                </div>
+                                
                             </div>
 
-                            <div class="col" style="display:flex;justify-content: start; align-items: center;">
+                            <div class="col" style="display:flex;justify-content: center; align-items: center;">
                                 <% if current_user.id.to_i != @post.user_id.to_i %>
                                 <%= button_to "",downvote_post_path(@post), class: 'btn fa-solid fa-2x fa-heart-crack',method: :patch %><br>
                                 <% end %>

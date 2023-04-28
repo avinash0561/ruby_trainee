@@ -1,0 +1,23 @@
+<%= render 'banner'%>
+<div class="container mt-5" style='margin-bottom:100px'>
+        <div class="row justify-content-center align-items-center">
+            <% @posts.each do |post| %>
+            <div class="col-md-6 col-lg-4" >
+                <div class="card mb-5" style="border-width: 1px; background-color: #edf4f4;">
+                    <div class="card-header" style='height:250px;display: flex; justify-content: center; align-items: center;'>
+                        <% post.images.each do |image| %>
+                        <%= image_tag(image, style: ' width:100%; height:100%',class: 'shadow card-top card-bg') %>
+                        <% end %> 
+                    </div>
+                    <div class="card-body" style='display: flex; justify-content: center; align-items: center;'>
+                        <h4><%= link_to post.title, post %></h4>
+                    </div>
+                    <div class="card-footer" style='display:flex; justify-content: center; align-items: center;'><b> <%= post.description%></b> </div>
+                  </div>                
+            </div>
+            <% end %>
+        </div>
+    </div>
+
+
+    

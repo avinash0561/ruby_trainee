@@ -1,0 +1,44 @@
+<div class="container" style='margin-bottom:100px'>
+        <%= form_with model: post do |form| %>
+        <div class="row">
+            <div class="col"style="display: flex; justify-content: center; align-items: center;">
+                <div>
+                    <%= form.label :title %><br>
+                    <%= form.text_field :title, class:'form-control',style:'width:335px' %>
+                    <div class = 'text-danger'><%= post.errors.full_messages_for(:title).first %></div>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                <div>
+                    <%= form.label :description %><br>
+                    <%= form.text_field :description, class:'form-control',style:'width:335px' %><br>
+                    <div class = 'text-danger'><%= @post.errors.full_messages_for(:description).first %></div>
+                  </div>
+            </div>
+        </div>
+
+      <div class="row">
+            <div class="col" style="display: flex; justify-content: center; align-items: center;">
+            <div>
+                <%= form.label :images %><br>
+                <%= form.file_field :images, multiple: true ,class: 'form-control'%><br>
+                <div class = 'text-danger'><%= post.errors.full_messages_for(:images).first %>
+                </div>
+            </div>
+      </div>
+      </div>
+                
+        <%= form.text_field :user_id, value: current_user.id, type: 'hidden' %><br>     
+
+        <div class="row">
+            <div class="col" style="display: flex; justify-content: center; align-items: center;">
+                <div>
+                    <%= form.submit class: 'col-12 btn btn-primary',style:'width:335px' %>
+                  </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
